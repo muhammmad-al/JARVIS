@@ -27,6 +27,10 @@
             document.getElementById('chat-box').innerHTML += `<p><b>You:</b> ${userInput}</p>`;
             document.getElementById('chat-box').innerHTML += `<p><b>Bot:</b> ${data.response}</p>`;
             document.getElementById('user-input').value = '';
+
+            // TTS part
+            const utterance = new SpeechSynthesisUtterance(data.response);
+            window.speechSynthesis.speak(utterance);
         }
     </script>
 </body>

@@ -7,9 +7,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-client = OpenAI(
-    api_key=os.getenv('OPENAI_API_KEY')
-)
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 @app.route('/')
 def home():
@@ -25,7 +23,7 @@ def chat():
 
 def get_gpt4_response(user_input):
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",  # or use "gpt-4"
+        model="gpt-4",  # or use "gpt-3.5-turbo"
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": user_input}
